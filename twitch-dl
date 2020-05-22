@@ -1,4 +1,4 @@
-#!/usr/local/bin/python3.7
+#!/usr/bin/python3
 
 import sys
 import re
@@ -84,7 +84,7 @@ with tempfile.TemporaryDirectory() as tmpdir:
         for s, l, name in to_items
     )
 
-    with Pool(5) as pool:
+    with Pool(8) as pool:
         async_result = pool.imap_unordered(download_file, files_to_download)
         for res in async_result:
             n_complete += 1
